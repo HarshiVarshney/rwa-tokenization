@@ -28,7 +28,6 @@ contract BlockShare is ERC721, LeaseAgreement, ProposalManager {
     uint256 private FlatNo;
 
     function Mint_2BHK() external  {
-        require(MintedFlats[FlatNo]==0, "Flat has already beeen minted");
         require(msg.sender == seller, "You are not the owner");
         FlatNo = _2BHK++;
         _safeMint(msg.sender, FlatNo);
@@ -38,7 +37,6 @@ contract BlockShare is ERC721, LeaseAgreement, ProposalManager {
     }
 
     function Mint_3BHK() external  {
-        require(MintedFlats[FlatNo]==0, "Flat has already beeen minted");
         require(msg.sender == seller, "You are not the owner");
         FlatNo = _3BHK++;
         _safeMint(msg.sender, FlatNo);
