@@ -1,5 +1,7 @@
 # 🏢 Brick 
 ## Real Estate Tokenization dApp
+<img width="1876" height="903" alt="Screenshot 2026-03-20 003936" src="https://github.com/user-attachments/assets/df1df706-ebce-4cd3-a1de-044c6727077f" />
+
 Brick is a Web3-based decentralized application that enables **fractional ownership of real estate** using blockchain technology.
 
 It allows users to:
