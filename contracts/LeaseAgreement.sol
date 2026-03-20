@@ -18,7 +18,7 @@ contract LeaseAgreement {
 
     function _2BHKForLease (address Tenant, uint256 FlatNo) public payable {
        require(FlatLandLord[FlatNo] == address(0), "SPV does not own this flat, please pay your land lord");
-       require(msg.value == 1000000000000000000, "Please pay 1 ether for rent");
+       require(msg.value == 100000000000000, "Please pay 0.0001 ether for rent");
        require(FlatNo>=0 && FlatNo<=4, "No such 2BHK flat exists");
        require(_2BHKTenants[FlatNo] == address(0), "Flat is already rented");
        _2BHKTenants[FlatNo] = Tenant;
@@ -36,7 +36,7 @@ contract LeaseAgreement {
 
     function _3BHKForLease (address Tenant, uint256 FlatNo) public payable {
        require(FlatLandLord[FlatNo] == address(0), "SPV does not own this flat, please pay your land lord");
-       require(msg.value == 1200000000000000000, "Please pay 1.2 ether for rent");
+       require(msg.value == 120000000000000, "Please pay 0.0012 ether for rent");
        require(FlatNo>4 && FlatNo<10, "No such 3BHK flat exists");
        require(_3BHKTenants[FlatNo] == address(0), "Flat is already rented");
        _3BHKTenants[FlatNo] = Tenant;

@@ -21,10 +21,10 @@ contract Brick  {
     function mintBrick() public payable {
 
         require(TokensSold<=110, "All tokens have been sold");
-        require(msg.value >= 500000000000000000, "Mininum 0.5 ETH required to purchase a token");
+        require(msg.value >= 500000000000000, "Mininum 0.0005 ETH required to purchase a token");
         Investors.push(msg.sender);
-        NumOfTokens[msg.sender] += msg.value/500000000000000000;
-        TokensSold += msg.value/500000000000000000;
+        NumOfTokens[msg.sender] += msg.value/500000000000000;
+        TokensSold += msg.value/500000000000000;
     }
 
     function withdrawETH() public onlyOwner{

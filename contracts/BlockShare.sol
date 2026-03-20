@@ -19,6 +19,7 @@ contract BlockShare is ERC721, LeaseAgreement, ProposalManager {
     uint256[] private FlatsSold;
     uint256 public TotalFlats = 10;
     uint256 public TotalTokens = 110;
+    mapping(uint256 FlatNo => uint256) private MintedFlats;
 
     constructor() ERC721("BlockShare", "BKS")  {
        seller = msg.sender;       
@@ -27,18 +28,22 @@ contract BlockShare is ERC721, LeaseAgreement, ProposalManager {
     uint256 private FlatNo;
 
     function Mint_2BHK() external  {
+        require(MintedFlats[FlatNo]==0, "Flat has already beeen minted");
         require(msg.sender == seller, "You are not the owner");
         FlatNo = _2BHK++;
         _safeMint(msg.sender, FlatNo);
         AvailableFlats.push(FlatNo);
+        MintedFlats[FlatNo]=1;
         
     }
 
     function Mint_3BHK() external  {
+        require(MintedFlats[FlatNo]==0, "Flat has already beeen minted");
         require(msg.sender == seller, "You are not the owner");
         FlatNo = _3BHK++;
         _safeMint(msg.sender, FlatNo);
         AvailableFlats.push(FlatNo);
+        MintedFlats[FlatNo]=1;
         
     } 
 
@@ -67,10 +72,11 @@ contract BlockShare is ERC721, LeaseAgreement, ProposalManager {
     }
 
     function transfer_2BHK (address receiver, uint256 FlatNo) external {
-       require(msg.sender == seller, "Only owner can transfer the flat");
        require(NumOfTokens[receiver]>=10, "You need 10 Tokens to claim this Flat");
        require(FlatNo<=4, "No such 2BHK flat exists");
-       transferFrom(msg.sender, receiver, FlatNo);
+       require(FlatLandLord[FlatNo] == address(0), "Already sold");
+       address currentOwner = ownerOf(FlatNo);
+      _transfer(currentOwner, receiver, FlatNo);
        FlatLandLord[FlatNo] = receiver;
        NumOfTokens[receiver]-=10;
        TotalTokens-=10;
@@ -87,10 +93,11 @@ contract BlockShare is ERC721, LeaseAgreement, ProposalManager {
     }
 
     function transfer_3BHK (address receiver, uint256 FlatNo) external {
-       require(msg.sender == seller, "Only owner can transfer the flat");
        require(NumOfTokens[receiver]>=12, "You need 12 Tokens to claim this 3BHK");
        require(FlatNo >4, "No such 3BHK flat exists");
-       transferFrom(msg.sender, receiver, FlatNo);
+       require(FlatLandLord[FlatNo] == address(0), "Already sold");
+      address currentOwner = ownerOf(FlatNo);
+      _transfer(currentOwner, receiver, FlatNo);
        FlatLandLord[FlatNo] = receiver;
        NumOfTokens[receiver]-=12;
        TotalTokens-=12;
@@ -105,6 +112,8 @@ contract BlockShare is ERC721, LeaseAgreement, ProposalManager {
        FlatsSold.push(FlatNo);
 
     }
+
+    
     
     function _AvailableFlats() public view returns(uint256[] memory) {
         return AvailableFlats;
@@ -124,10 +133,10 @@ contract BlockShare is ERC721, LeaseAgreement, ProposalManager {
     }
 
     mapping(address Investor => uint Amount) public RentCollected;
-    uint256 SPV_Balance = address(this).balance;
+    uint256 balance = address(this).balance;
     function transferRent() public onlyOwner {
 
-        uint amount = SPV_Balance/TotalTokens;
+        uint256 amount = address(this).balance / TotalTokens;
 
         require(amount > 0, "No balance in contract");
 
