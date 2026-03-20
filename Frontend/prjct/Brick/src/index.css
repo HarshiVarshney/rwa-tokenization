@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    
+    :root {
+      --primary: #00ff9d;
+      --bg: #0a0a0a;
+      --card: #111111;
+    }
+    
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: #fff;
+      overflow-x: hidden;
+    }
+     .connect-btn {
+      background: var(--primary);
+      color: #000;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 0 40px rgba(0, 255, 157, 0.5);
+    }
+    
+    .connect-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 60px rgba(0, 255, 157, 0.8);
+    }
+
+.app {
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 100;
+  padding: 18px 0;
+}
+
+.nav-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  background: #00f5ff;
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.logo-text {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover, .nav-btn.active {
+  color: #00f5ff;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1a1a1a;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 14px;
+}
+
+.wallet-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff9d;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 30%, rgba(0, 245, 255, 0.12) 0%, transparent 70%);
+  padding-top: 80px;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 860px;
+  padding: 0 20px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.06);
+  color: #00f5ff;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: 78px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -3px;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  color: #aaa;
+  margin-bottom: 48px;
+}
+
+.hero-cta {
+  background: linear-gradient(90deg, #00f5ff, #0099ff);
+  color: #000;
+  font-size: 22px;
+  font-weight: 600;
+  padding: 22px 64px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.4);
+}
+
+.hero-cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 245, 255, 0.5);
+}
+
+.three-container {
+  margin: 80px auto 0;
+  width: 440px;
+  height: 440px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 60px rgba(0, 245, 255, 0.25);
+}
+
+/* MAIN APP */
+.main-app {
+  padding-top: 110px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 40px 80px;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.balance-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 52px 48px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.balance-label {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #00f5ff;
+  margin-bottom: 12px;
+}
+
+.balance-number {
+  font-size: 108px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -4px;
+}
+
+.balance-symbol {
+  font-size: 42px;
+  margin-top: -12px;
+  color: #666;
+}
+
+.eth-value {
+  margin-top: 12px;
+  font-size: 19px;
+  color: #00ff9d;
+}
+
+.progress-container {
+  margin-top: 42px;
+}
+
+.progress-label {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #777;
+}
+
+.progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #00f5ff, #0099ff);
+  transition: width 1s ease;
+}
+
+.rent-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rent-label {
+  color: #00f5ff;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.rent-amount {
+  font-size: 68px;
+  font-weight: 700;
+  margin-top: 18px;
+}
+
+.rent-sub {
+  margin-top: auto;
+  font-size: 13px;
+  color: #777;
+}
+
+.your-flats {
+  grid-column: 1 / -1;
+  margin-top: 32px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.view-all {
+  background: none;
+  border: none;
+  color: #00f5ff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.flats-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.flat-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  width: 320px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.flat-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.flat-info {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flat-type {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.flat-status {
+  font-size: 13px;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  background: #00ff9d;
+  color: #000;
+  font-weight: 500;
+}
+
+.rent-out-btn {
+  background: #00ff9d;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* SHOP, MARKETPLACE, RENT, GOVERNANCE */
+.shop-page, .rent-page, .governance {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.shop-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 64px 56px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.shop-desc {
+  color: #888;
+  margin-bottom: 48px;
+}
+
+.input-group label {
+  display: block;
+  text-align: left;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.qty-input {
+  width: 100%;
+  background: #111;
+  border: 1px solid #333;
+  padding: 28px;
+  font-size: 48px;
+  text-align: center;
+  border-radius: 16px;
+  color: white;
+}
+
+.buy-btn {
+  margin-top: 40px;
+  width: 100%;
+  background: linear-gradient(90deg, #00f5ff, #0099ff);
+  color: #000;
+  font-size: 22px;
+  font-weight: 600;
+  padding: 28px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.sold-progress {
+  margin-top: 32px;
+  font-size: 14px;
+  color: #666;
+}
+
+.marketplace {
+  padding-top: 20px;
+}
+
+.page-title {
+  font-size: 38px;
+  margin-bottom: 48px;
+  font-weight: 600;
+}
+
+.flats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.market-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.market-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.market-content {
+  padding: 28px;
+}
+
+.market-type {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.market-owner {
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.market-price {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.brick-unit {
+  font-size: 16px;
+  color: #666;
+}
+
+.status-badge {
+  margin-top: 16px;
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status-badge.available {
+  background: #00ff9d;
+  color: #000;
+}
+
+.status-badge.claimed {
+  background: #444;
+}
+
+.claim-btn {
+  margin-top: 24px;
+  width: 100%;
+  background: white;
+  color: black;
+  border: none;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.rent-card-full {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 64px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section-title {
+  color: #00f5ff;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.lease-row {
+  background: #111;
+  padding: 24px 32px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.lease-btn {
+  background: #00ff9d;
+  color: #000;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.tenant-box {
+  background: #111;
+  padding: 48px;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.pay-rent-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 18px 48px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 9999px;
+  margin-top: 24px;
+}
+
+.gov-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+
+.proposal-input {
+  width: 520px;
+  padding: 18px 24px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 9999px;
+  color: white;
+  font-size: 16px;
+}
+
+.create-proposal-btn {
+  background: #00f5ff;
+  color: #000;
+  border: none;
+  padding: 18px 36px;
+  border-radius: 9999px;
+  font-weight: 600;
+  margin-left: 16px;
+}
+
+.proposal-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  padding: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.proposal-desc {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.proposal-meta {
+  font-size: 14px;
+  color: #777;
+  margin-top: 12px;
+}
+
+.votes-big {
+  font-size: 52px;
+  font-weight: 700;
+  color: #00f5ff;
+}
+
+.votes-label {
+  font-size: 13px;
+  color: #666;
+  margin-top: -8px;
+}
+
+.vote-btn {
+  margin-top: 24px;
+  background: white;
+  color: black;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: #555;
+  font-size: 13px;
+}
+
+/* ANIMATIONS */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard { grid-template-columns: 1fr; }
+  .hero-title { font-size: 58px; }
+}
